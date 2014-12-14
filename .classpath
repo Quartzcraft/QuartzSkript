@@ -2,7 +2,8 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Users/Nicholas/Documents/Minecraft/bukkit-1.7.2-R0.3-20140127.014016-20.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Nicholas/Documents/Minecraft/Servers/New Server/plugins/Skript.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Nicholas/workspace/NfellAddon/dep/spigot-1.7.9-R0.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Nicholas/Documents/ChestShop.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
