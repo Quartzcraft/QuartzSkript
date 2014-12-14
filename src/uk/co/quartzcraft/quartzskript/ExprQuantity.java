@@ -54,7 +54,7 @@ public class ExprQuantity extends SimpleExpression<String> {
     		if (t == TransactionType.BUY) {
     			out = l2.replace("B ", "");
     		} else {
-    			out = l2.replace(" S", "");
+    			out = l2.replace(": S", "");
     		}
             return new String[] { out };
     }
