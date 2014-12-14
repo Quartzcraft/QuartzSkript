@@ -46,7 +46,7 @@ public class ExprOwner extends SimpleExpression<OfflinePlayer> {
     @Override
     @Nullable
     protected OfflinePlayer[] get(Event e) {
-            return new OfflinePlayer[] { ((TransactionEvent) e).getClient() };
+            return new OfflinePlayer[] { ((TransactionEvent) e).getOwner() };
     }
 
 }
