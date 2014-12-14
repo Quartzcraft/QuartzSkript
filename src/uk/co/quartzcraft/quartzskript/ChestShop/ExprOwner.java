@@ -5,7 +5,7 @@
  * 
 */
 
-package uk.co.quartzcraft.quartzskript;
+package uk.co.quartzcraft.quartzskript.ChestShop;
 
 import javax.annotation.Nullable;
 

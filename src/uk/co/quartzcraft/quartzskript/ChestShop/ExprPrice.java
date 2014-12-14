@@ -5,7 +5,7 @@
  * 
 */
 
-package uk.co.quartzcraft.quartzskript;
+package uk.co.quartzcraft.quartzskript.ChestShop;
 
 import javax.annotation.Nullable;
 
@@ -16,16 +16,15 @@ import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.skript.log.ErrorQuality;
 import ch.njol.util.Kleenean;
-
-import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
+
 import com.Acrobot.ChestShop.Events.TransactionEvent;
 
-public class ExprClient extends SimpleExpression<Player> {
+public class ExprPrice extends SimpleExpression<Number> {
 	 
     @Override
-    public Class<? extends Player> getReturnType() {
-            return Player.class;
+    public Class<? extends Number> getReturnType() {
+            return Number.class;
     }
 
     @Override
@@ -46,13 +45,13 @@ public class ExprClient extends SimpleExpression<Player> {
 
     @Override
     public String toString(@Nullable Event e, boolean b) {
-            return "Returns client";
+            return "Returns price";
     }
 
     @Override
     @Nullable
-    protected Player[] get(Event e) {
-            return new Player[] { ((TransactionEvent) e).getClient() };
+    protected Number[] get(Event e) {
+            return new Number[] { ((TransactionEvent) e).getPrice() };
     }
 
 }

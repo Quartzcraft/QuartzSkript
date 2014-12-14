@@ -20,9 +20,15 @@ import ch.njol.skript.lang.util.SimpleEvent;
 import ch.njol.skript.registrations.EventValues;
 import ch.njol.skript.util.Getter;
 
+import uk.co.quartzcraft.quartzskript.ChestShop.*;
+
 public class Main extends JavaPlugin {
 	 @Override
 	    public void onEnable() {
+		 
+		 /*
+		  * 	Start of ChestShop
+		  */
 		 Skript.registerEvent("On ChestShop Transaction", SimpleEvent.class, TransactionEvent.class, "chestshop transaction");
 		 Skript.registerExpression(ExprOwner.class, OfflinePlayer.class, ExpressionType.SIMPLE, "owner");
 		 Skript.registerExpression(ExprClient.class, Player.class, ExpressionType.SIMPLE, "client");
@@ -39,4 +45,8 @@ public class Main extends JavaPlugin {
 			                }
 		 			}, 0);
 		}
+	 
+	 	/*
+	 	 * 		End of ChestShop	 	 
+	 	 */
 }

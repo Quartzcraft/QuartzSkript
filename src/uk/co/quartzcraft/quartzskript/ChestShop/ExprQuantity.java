@@ -5,7 +5,7 @@
  * 
 */
 
-package uk.co.quartzcraft.quartzskript;
+package uk.co.quartzcraft.quartzskript.ChestShop;
 
 import javax.annotation.Nullable;
 
@@ -17,16 +17,17 @@ import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.skript.log.ErrorQuality;
 import ch.njol.util.Kleenean;
 
+import org.bukkit.block.Sign;
 import org.bukkit.event.Event;
 
 import com.Acrobot.ChestShop.Events.TransactionEvent;
 import com.Acrobot.ChestShop.Events.TransactionEvent.TransactionType;
 
-public class ExprTranstype extends SimpleExpression<TransactionType> {
+public class ExprQuantity extends SimpleExpression<String> {
 	 
     @Override
-    public Class<? extends TransactionType> getReturnType() {
-            return TransactionType.class;
+    public Class<? extends String> getReturnType() {
+            return String.class;
     }
 
     @Override
@@ -47,13 +48,22 @@ public class ExprTranstype extends SimpleExpression<TransactionType> {
 
     @Override
     public String toString(@Nullable Event e, boolean b) {
-            return "Returns price";
+            return "Returns stock";
     }
 
     @Override
     @Nullable
-    protected TransactionType[] get(Event e) {
-            return new TransactionType[] { ((TransactionEvent) e).getTransactionType() };
+    protected String[] get(Event e) {
+    		Sign sign = ((TransactionEvent) e).getSign();
+    		TransactionType t = ((TransactionEvent) e).getTransactionType();
+    		String l2 = sign.getLine(2);
+    		String out = "";
+    		if (t == TransactionType.BUY) {
+    			out = l2.replace("B ", "");
+    		} else {
+    			out = l2.replace(": S", "");
+    		}
+            return new String[] { out };
     }
 
 }

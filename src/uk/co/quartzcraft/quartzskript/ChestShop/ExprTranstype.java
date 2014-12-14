@@ -5,7 +5,7 @@
  * 
 */
 
-package uk.co.quartzcraft.quartzskript;
+package uk.co.quartzcraft.quartzskript.ChestShop;
 
 import javax.annotation.Nullable;
 
@@ -16,15 +16,17 @@ import ch.njol.skript.lang.SkriptParser.ParseResult;
 import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.skript.log.ErrorQuality;
 import ch.njol.util.Kleenean;
+
 import org.bukkit.event.Event;
 
 import com.Acrobot.ChestShop.Events.TransactionEvent;
+import com.Acrobot.ChestShop.Events.TransactionEvent.TransactionType;
 
-public class ExprPrice extends SimpleExpression<Number> {
+public class ExprTranstype extends SimpleExpression<TransactionType> {
 	 
     @Override
-    public Class<? extends Number> getReturnType() {
-            return Number.class;
+    public Class<? extends TransactionType> getReturnType() {
+            return TransactionType.class;
     }
 
     @Override
@@ -50,8 +52,8 @@ public class ExprPrice extends SimpleExpression<Number> {
 
     @Override
     @Nullable
-    protected Number[] get(Event e) {
-            return new Number[] { ((TransactionEvent) e).getPrice() };
+    protected TransactionType[] get(Event e) {
+            return new TransactionType[] { ((TransactionEvent) e).getTransactionType() };
     }
 
 }
