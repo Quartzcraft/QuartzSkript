@@ -1,3 +1,10 @@
+/*
+ * ExprQuantity.java - Part of QuartzSkript 
+ * QuartzCraft (C) QuartzCraft 2014
+ * Code by nfell2009
+ * 
+*/
+
 package uk.co.quartzcraft.quartzskript;
 
 import javax.annotation.Nullable;
