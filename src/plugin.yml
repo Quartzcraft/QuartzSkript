@@ -1,0 +1,4 @@
+name: QuartzSkript
+main: uk.co.quartzcraft.quartzskript.Main
+version: 1.0
+depend: [Skript, ChestShop]
