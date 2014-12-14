@@ -14,6 +14,7 @@ import org.bukkit.block.Sign;
 import org.bukkit.event.Event;
 
 import com.Acrobot.ChestShop.Events.TransactionEvent;
+import com.Acrobot.ChestShop.Events.TransactionEvent.TransactionType;
 
 public class ExprQuantity extends SimpleExpression<String> {
 	 
@@ -47,8 +48,15 @@ public class ExprQuantity extends SimpleExpression<String> {
     @Nullable
     protected String[] get(Event e) {
     		Sign sign = ((TransactionEvent) e).getSign();
+    		TransactionType t = ((TransactionEvent) e).getTransactionType();
     		String l2 = sign.getLine(2);
-            return new String[] { l2 };
+    		String out = "";
+    		if (t == TransactionType.BUY) {
+    			out = l2.replace("B ", "");
+    		} else {
+    			out = l2.replace(" S", "");
+    		}
+            return new String[] { out };
     }
 
 }
