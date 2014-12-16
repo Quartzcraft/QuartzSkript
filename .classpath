@@ -6,5 +6,6 @@
 	<classpathentry kind="lib" path="C:/Users/Nicholas/workspace/NfellAddon/dep/spigot-1.7.9-R0.1-SNAPSHOT.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Nicholas/Documents/ChestShop.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Nicholas/Documents/Minecraft/Servers/SP 1.8 2/plugins/BOSEconomy.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Nicholas/Documents/Quartz.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
