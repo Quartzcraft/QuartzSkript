@@ -26,7 +26,7 @@ public class ExprQCLastSeen extends Condition {
 
     @Override
     public String toString(@Nullable Event e, boolean b) {
-            return "Checking too see if an entity can see a player";
+            return "Returning player data for last seen";
     }
 
     @Override
