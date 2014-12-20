@@ -21,38 +21,51 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import com.Acrobot.ChestShop.Events.TransactionEvent;
 
-public class ExprClient extends SimpleExpression<Player> {
-	 
-    @Override
-    public Class<? extends Player> getReturnType() {
-            return Player.class;
-    }
+public abstract class ExpVelocity extends SimplePropertyExpression<Entity, Vector> {
 
-    @Override
-    public boolean isSingle() {
-            return true;
-    }
+	public Vector convert(Entity[] entity) {
+		for (Entity e : entity) {
+			return e.getVelocity();
+		}
+		if (entity == null) {
+			return null;
+		}
+		return null;
+	}
 
-    @Override
-    public boolean init(Expression<?>[] e, int i, Kleenean kl, ParseResult pr) {
-            if (!ScriptLoader.isCurrentEvent(TransactionEvent.class)) {
-                    Skript.error(
-                                    "Cannot use client in other events other than the transaction event",
-                                    ErrorQuality.SEMANTIC_ERROR);
-                    return false;
-            }
-            return true;
-    }
+	@Override
+	public void change(Event e, Object[] delta, Changer.ChangeMode mode) {
+		Entity[] entity = getExpr().getAll(e);
+		if(entity == null)
+			return;
+		Vector v = (Vector) delta[0];
+		for (Entity entity1 : entity){
+			if (mode == Changer.ChangeMode.SET){
+				entity1.setVelocity(v);
+			}
+		}
+	}
 
-    @Override
-    public String toString(@Nullable Event e, boolean b) {
-            return "Returns client";
-    }
 
-    @Override
-    @Nullable
-    protected Player[] get(Event e) {
-            return new Player[] { ((TransactionEvent) e).getClient() };
-    }
+	@SuppressWarnings("unchecked")
+	@Override
+	public Class<?>[] acceptChange(final ChangeMode mode) {
+		if (mode == Changer.ChangeMode.SET) //SET can be replaced with REMOVE ADD or similiar stuff.
+			return CollectionUtils.array(Boolean.class); //The Class should be the TypeToGet and in this case Number.
+		if (mode == Changer.ChangeMode.REMOVE)
+			return CollectionUtils.array(Boolean.class);
+		return null;
+	}
+
+	@Override
+	public Class<? extends Vector> getReturnType() { //ReturnType is TypeToGet and in this case Number.
+		return Vector.class;
+
+	}
+	@Override
+	protected String getPropertyName() {
+		// TODO Auto-generated method stub
+		return "Velocity";
+	}
 
 }
